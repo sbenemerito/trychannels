@@ -25,7 +25,7 @@ SECRET_KEY = '&(xl!o$8400wn^5ri8n(qu!f$@uxm+7kcux2&kif71uox8jc2t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,3 +128,8 @@ STATIC_URL = '/static/'
 
 # Channels
 ASGI_APPLICATION = 'core.routing.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
