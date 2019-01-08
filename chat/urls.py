@@ -1,7 +1,9 @@
 from django.urls import path
-from django.views.generic.base import TemplateView
+
+from chat.views import ChatRoomView, LobbyView
 
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="chat/lobby.html"), name="index"),
+    path('', LobbyView.as_view(), name="lobby"),
+    path('<str:room_name>/', ChatRoomView.as_view(), name="chat_room"),
 ]
